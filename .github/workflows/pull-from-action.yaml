@@ -11,8 +11,8 @@ on:
                 required: false
             
 env:
-    github_username: ENVIRONMENT-sync # REPLACE
-    github_email: ENVIRONMENT@YOUR_COMPANY # REPLACE 
+    github_username: carusooo
+    github_email: andy@ganymede.bio
 
 jobs:
     detect-flow-changes:
