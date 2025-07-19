@@ -31,7 +31,7 @@ jobs:
                 ganymede_subdomain: ${{ vars.GANYMEDE_SUBDOMAIN }}
                 ganymede_api_token: ${{ secrets.GANYMEDE_API_TOKEN }}
                 flow_name: ${{ inputs.flowName }}
-                zip_directory: ${{ inputs.environment}}
+                zip_directory: ${{ inputs.environment }}
 
           - name: Commit changes
             id: commit
