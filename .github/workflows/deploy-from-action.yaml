@@ -6,6 +6,11 @@ on:
             environment:
                 description: 'Environment to publish the flows into'
                 required: true
+                type: choice
+                options:
+                - dev
+                - prod
+                default: dev
             authorEmail:
                 description: 'Email of the author for the commit that is a Ganymede user'
                 required: true
