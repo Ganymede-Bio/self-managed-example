@@ -3,23 +3,24 @@ name: Deploy Changed Flows to Ganymede From Action
 on:
     workflow_dispatch:
         inputs:
+            environment:
+                description: 'Environment to publish the flows into'
+                required: true
             authorEmail:
                 description: 'Email of the author for the commit that is a Ganymede user'
                 required: true
     push:
         branches:
             - main
-env:
-    ENVIRONMENT: ENVIRONMENT # REPLACE
 jobs:
     detect-changes:
         runs-on: ubuntu-latest
-        environment: ENVIRONMENT # REPLACE
+        environment: ${{ inputs.environment }}
         steps:
           - name: Commit to Ganymede
             uses: ganymede-bio/flow-commit-action@v1
             with:
-                environment: ${{ env.ENVIRONMENT }}
+                environment: ${{ env.GANYMEDE_ENVIRONMENT }}
                 ganymede_subdomain: ${{ vars.GANYMEDE_SUBDOMAIN }}
                 ganymede_api_token: ${{ secrets.GANYMEDE_API_TOKEN }}
                 author_email: ${{ inputs.authorEmail }}
