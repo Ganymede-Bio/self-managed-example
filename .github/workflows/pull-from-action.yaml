@@ -6,6 +6,11 @@ on:
             environment:
                 description: 'Environment to pull from Ganymede'
                 required: true
+                type: choice
+                options:
+                - dev
+                - prod
+                default: dev
             flowName:
                 description: 'Flow name to pull from Ganymede (optional, pulls all if not specified)'
                 required: false
@@ -22,10 +27,11 @@ jobs:
           - name: Pull from Ganymede
             uses: ganymede-bio/flow-pull-action@v1
             with:
-                environment: ${{ inputs.environment }}
+                environment: ${{ vars.GANYMEDE_ENVIRONMENT }}
                 ganymede_subdomain: ${{ vars.GANYMEDE_SUBDOMAIN }}
                 ganymede_api_token: ${{ secrets.GANYMEDE_API_TOKEN }}
                 flow_name: ${{ inputs.flowName }}
+                zip_directory: ${{ inputs.environment }}
 
           - name: Commit changes
             id: commit
