@@ -25,7 +25,7 @@ jobs:
           - name: Commit to Ganymede
             uses: ganymede-bio/flow-commit-action@v1
             with:
-                environment: ${{ env.GANYMEDE_ENVIRONMENT }}
+                environment: ${{ inputs.environment }}
                 ganymede_subdomain: ${{ vars.GANYMEDE_SUBDOMAIN }}
                 ganymede_api_token: ${{ secrets.GANYMEDE_API_TOKEN }}
                 author_email: ${{ inputs.authorEmail }}
