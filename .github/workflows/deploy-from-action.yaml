@@ -23,7 +23,7 @@ jobs:
         environment: ${{ inputs.environment || 'dev' }}
         steps:
           - name: Commit to Ganymede
-            uses: ganymede-bio/flow-commit-action
+            uses: ganymede-bio/flow-commit-action@v1
             env:
                 GITHUB_EVENT_INPUTS: ${{ toJSON(github.event.inputs) }}
             with:
