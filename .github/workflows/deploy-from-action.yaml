@@ -20,12 +20,15 @@ on:
 jobs:
     detect-changes:
         runs-on: ubuntu-latest
-        environment: ${{ inputs.environment }}
+        environment: ${{ inputs.environment || 'dev' }}
         steps:
           - name: Commit to Ganymede
             uses: ganymede-bio/flow-commit-action@v1
+            env:
+                GITHUB_EVENT_INPUTS: ${{ toJSON(github.event.inputs) }}
             with:
-                environment: ${{ inputs.environment }}
+                environment: ${{ inputs.environment || 'dev' }}
+                ganymede_environment: ${{ vars.GANYMEDE_ENVIRONMENT }}
                 ganymede_subdomain: ${{ vars.GANYMEDE_SUBDOMAIN }}
                 ganymede_api_token: ${{ secrets.GANYMEDE_API_TOKEN }}
-                author_email: ${{ inputs.authorEmail }}
+                author_email: ${{ inputs.authorEmail || github.event.head_commit.author.email }}
