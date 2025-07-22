@@ -1,5 +1,7 @@
 from io import BytesIO
 
+from lib.time_util import print_date_time
+
 import pandas as pd
 from ganymede_sdk import GanymedeContext
 from ganymede_sdk.io import NodeReturn
@@ -26,7 +28,7 @@ def execute(excel_file: bytes | dict[str, bytes], ganymede_context: GanymedeCont
     Excel_file is represented in bytes so user can handle cases where Excel spreadsheet is
     a binary object within this function
     """
-
+    print_date_time()
     # passing sheet_name=None returns a dict of dataframes with sheet names as keys
     if isinstance(excel_file, dict):
         first_excel_file = list(excel_file.values()).pop()
