@@ -1,5 +1,6 @@
 import copy
 from io import BytesIO
+from lib.time_util import print_date_time
 
 import pandas as pd
 from ganymede_sdk import GanymedeContext, Ganymede
@@ -35,6 +36,7 @@ def execute(
     Files can also be retrieved and processed using the list_files and retrieve_files functions.
     Documentation on these functions can be found at https://docs.ganymede.bio/sdk/GanymedeClass
     """
+    print_date_time()
     g = Ganymede(ganymede_context)
     tables = g.retrieve_tables(["qPCR_Analysis_Results"])
     results_data = tables["qPCR_Analysis_Results"]
