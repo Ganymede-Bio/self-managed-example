@@ -25,7 +25,7 @@ jobs:
         environment: ${{ inputs.environment }}
         steps:
           - name: Pull from Ganymede
-            uses: ganymede-bio/flow-pull-action@v2
+            uses: ganymede-bio/flow-pull-action@v2.1.0
             with:
                 environment: ${{ vars.GANYMEDE_ENVIRONMENT }}
                 ganymede_subdomain: ${{ vars.GANYMEDE_SUBDOMAIN }}
