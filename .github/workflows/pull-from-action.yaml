@@ -25,13 +25,14 @@ jobs:
         environment: ${{ inputs.environment }}
         steps:
           - name: Pull from Ganymede
-            uses: ganymede-bio/flow-pull-action@v1
+            uses: ganymede-bio/flow-pull-action@v2
             with:
                 environment: ${{ vars.GANYMEDE_ENVIRONMENT }}
                 ganymede_subdomain: ${{ vars.GANYMEDE_SUBDOMAIN }}
                 ganymede_api_token: ${{ secrets.GANYMEDE_API_TOKEN }}
                 flow_name: ${{ inputs.flowName }}
                 zip_directory: ${{ inputs.environment }}
+                include_lib_files: "true"
 
           - name: Commit changes
             id: commit
