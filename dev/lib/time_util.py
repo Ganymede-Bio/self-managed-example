@@ -1,3 +1,6 @@
+# This file contains utility functions for printing dates and times.
+# It is a simple example of how to include lib files in Flows.
+
 from datetime import date, datetime
 
 def print_date():

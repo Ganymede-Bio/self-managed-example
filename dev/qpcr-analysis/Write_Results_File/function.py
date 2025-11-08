@@ -5,6 +5,7 @@ import pandas as pd
 from ganymede_sdk import GanymedeContext, Ganymede
 from ganymede_sdk.io import NodeReturn
 
+from lib.time_util import print_date_time
 
 def execute(
     df_sql_result: pd.DataFrame | list[pd.DataFrame],
@@ -28,6 +29,7 @@ def execute(
     NodeReturn
         Object containing data to store in data lake and/or file storage
     """
+    print_date_time()
     g = Ganymede(ganymede_context)
 
     results = g.retrieve_tables("qPCR_Analysis_Calculated_Results")[
