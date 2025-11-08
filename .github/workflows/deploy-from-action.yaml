@@ -20,7 +20,7 @@ jobs:
         environment: ${{ inputs.environment || 'dev' }}
         steps:
           - name: Commit to Ganymede
-            uses: ganymede-bio/flow-commit-action@v1
+            uses: ganymede-bio/flow-commit-action@v1.1.0
             with:
                 environment: ${{ inputs.environment }}
                 ganymede_environment: ${{ vars.GANYMEDE_ENVIRONMENT }}
